@@ -18,8 +18,8 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
         this.users = this.serviceLogin.users;
         this.id = this.route.snapshot.paramMap.get('id');
-        for (let user of this.users) {
-            if (user.id == this.id) {
+        for (const user of this.users) {
+            if (user.id === this.id) {
                 this.name = user.name;
             }
         }

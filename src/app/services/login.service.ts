@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 @Injectable()
 export class LoginService {
     invalid: boolean;
-    users: object[];
+    users: any;
 
     constructor(private router: Router) {
         this.invalid = false;
@@ -19,8 +19,8 @@ export class LoginService {
 
 
     login(name, password) {
-        for (let user of this.users) {
-            if (name == user.id && password == user.id) {
+        for (const user of this.users) {
+            if (name === user.id && password === user.id) {
                 this.router.navigate(['/home/' + user.id]);
             } else {
                 this.invalid = true;
