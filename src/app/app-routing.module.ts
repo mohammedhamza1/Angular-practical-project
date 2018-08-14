@@ -3,10 +3,14 @@ import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {HomeComponent} from './home/home.component';
 import {NotFoundComponent} from './not-found/not-found.component';
+import {EditComponent} from './edit/edit.component';
+import {ManagementComponent} from './management/management.component';
 
 const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'home/:id', component: HomeComponent},
+    {path: 'home/edit/:id', component: EditComponent},
+    {path: 'management/:id', component: ManagementComponent},
     {path: '', redirectTo: '/login', pathMatch: 'full'},
     {path: '**', component: NotFoundComponent},
 ];

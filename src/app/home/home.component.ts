@@ -8,21 +8,28 @@ import {LoginService} from '../services/login.service';
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    id: any;
+    username: any;
     name: any;
-    users: any;
+    person: any;
+    ID: any;
 
     constructor(private route: ActivatedRoute, private serviceLogin: LoginService) {
+        this.username = this.route.snapshot.paramMap.get('id');
+        this.serviceLogin.getUsers().subscribe(
+            data => {
+                this.person = data;
+                for (const user of this.person) {
+                    if (user.username == this.username) {
+                        this.name = user.fname;
+                        this.ID = user.id;
+                    }
+                }
+            }
+        );
+
     }
 
     ngOnInit() {
-        this.users = this.serviceLogin.users;
-        this.id = this.route.snapshot.paramMap.get('id');
-        for (const user of this.users) {
-            if (user.id === this.id) {
-                this.name = user.name;
-            }
-        }
     }
 
 

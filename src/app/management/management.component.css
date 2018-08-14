@@ -1,0 +1,27 @@
+.jumbotron{
+    position: relative;
+}
+ .sign-out{
+    position: absolute;
+    left: 0;
+     top: 0;
+}
+ul{
+    margin-bottom: 20px;
+}
+ul li{
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+}
+ul li a{
+    color: #fff;
+    float: right;
+}
+p a{
+    color: #fff;
+    text-decoration: none;
+}
+p a:hover{
+    color: #fff;
+}
