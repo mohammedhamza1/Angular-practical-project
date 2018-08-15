@@ -18,6 +18,15 @@ export class LoginService {
         });
     }
 
+    postUser(id, fname, lname, username) {
+        this._post.post(`http://localhost:3000/users/`, {
+            id: id,
+            fname: fname,
+            lname: lname,
+            username: username
+        }).subscribe(data => data, error1 => error1, () => console.log('User Added!'));
+    }
+
     deleteUser(uId) {
         this._delete.delete(`http://localhost:3000/users/${uId}`).subscribe(data => data
             , error1 => error1

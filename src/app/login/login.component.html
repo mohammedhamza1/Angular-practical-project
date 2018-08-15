@@ -3,10 +3,12 @@
     <img class="mb-4" src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label class="sr-only">Email address</label>
-    <input type="text" name="name" [(ngModel)]="name" class="form-control" placeholder="Username" required autofocus>
+    <input type="text" name="name" #uname="ngModel" [(ngModel)]="name" class="form-control" placeholder="Username" required autofocus>
+    <div [hidden]="uname.valid || uname.pristine" class="alert alert-danger">Username is required</div>
     <label class="sr-only">Password</label>
-    <input type="password" name="password" [(ngModel)]="password" class="form-control" placeholder="Password" required>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <input type="password" name="password" #pass="ngModel" [(ngModel)]="password" class="form-control" placeholder="Password" required>
+    <div [hidden]="pass.valid || pass.pristine" class="alert alert-danger">Password is invalid</div>
+    <button [disabled]="uname.invalid || pass.invalid" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
   </form>
 </div>

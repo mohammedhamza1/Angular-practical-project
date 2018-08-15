@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LoginService} from '../services/login.service';
-import set = Reflect.set;
 
 @Component({
     selector: 'app-management',
@@ -15,7 +14,6 @@ export class ManagementComponent implements OnInit {
     adminName: any;
     users: any;
     userUserName: any;
-    delete: boolean;
 
 
     constructor(private _admins: LoginService, private _users: LoginService, private route: ActivatedRoute, private router: Router) {
@@ -43,14 +41,10 @@ export class ManagementComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.delete = true;
     }
 
 
     deleteUser(value) {
         this._users.deleteUser(value);
-        setTimeout(() => {
-            this.delete = false;
-        }, 1000);
     }
 }

@@ -13,6 +13,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginService } from './services/login.service';
 import { EditComponent } from './edit/edit.component';
 import { ManagementComponent } from './management/management.component';
+import { NewUserComponent } from './new-user/new-user.component';
 
 
 
@@ -23,7 +24,8 @@ import { ManagementComponent } from './management/management.component';
         HomeComponent,
         NotFoundComponent,
         EditComponent,
-        ManagementComponent
+        ManagementComponent,
+        NewUserComponent
     ],
     imports: [
         BrowserModule,
