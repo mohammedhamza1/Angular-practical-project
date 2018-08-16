@@ -29,9 +29,6 @@ export class NewUserComponent implements OnInit {
 
     AddNewUser() {
         this.addUser.postUser(this.newID, this.newFName, this.newLName, this.newUsername);
-        this.newUsername = '';
-        this.newLName = '';
         this.newID += 25;
-        this.newFName = '';
     }
 }

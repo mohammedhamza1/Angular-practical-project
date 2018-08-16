@@ -10,8 +10,10 @@ export class LoginComponent implements OnInit {
     name: string;
     password: any;
     status: any;
+    error: boolean;
 
     constructor(private serviceLogin: LoginService) {
+        this.error = this.serviceLogin.routeError;
     }
 
     ngOnInit() {

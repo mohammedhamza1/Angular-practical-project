@@ -3,7 +3,7 @@
     <div class="row align-items-center">
         <div class="col-lg-6 offset-lg-3">
             <h3>Add New User</h3>
-            <form (submit)="AddNewUser()">
+            <form #addForm="ngForm" (submit)="AddNewUser(); addForm.reset();">
                 <div class="form-group">
                     <input type="text" #fname="ngModel" required name="newFName" [(ngModel)]="newFName" class="form-control"
                            placeholder="First Name">
@@ -28,7 +28,7 @@
                         Username is required
                     </div>
                 </div>
-                <button type="submit" [disabled]="fname.invalid || lname.invalid || uname.invalid" class="btn btn-primary btn-lg btn-block">Add</button>
+                <button type="submit" [disabled]="fname.invalid || lname.invalid || uname.invalid"  class="btn btn-primary btn-lg btn-block">Add</button>
             </form>
         </div>
     </div>
