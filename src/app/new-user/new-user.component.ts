@@ -14,6 +14,7 @@ export class NewUserComponent implements OnInit {
     newUsername: any;
     usersCount: any;
     adminUsername: any;
+    submitted: boolean;
 
     constructor(private addUser: LoginService, private getUsers: LoginService, private route: ActivatedRoute) {
         this.adminUsername = this.route.snapshot.paramMap.get('id');
@@ -30,5 +31,6 @@ export class NewUserComponent implements OnInit {
     AddNewUser() {
         this.addUser.postUser(this.newID, this.newFName, this.newLName, this.newUsername);
         this.newID += 25;
+        this.submitted = true;
     }
 }

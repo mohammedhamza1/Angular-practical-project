@@ -26,7 +26,6 @@ export class ManagementComponent implements OnInit {
                     if (user.username == this.username) {
                         this.adminName = user.fname;
                         this.ID = user.id;
-
                     }
                 }
             }
@@ -41,10 +40,15 @@ export class ManagementComponent implements OnInit {
     }
 
     ngOnInit() {
+
     }
 
 
     deleteUser(value) {
         this._users.deleteUser(value);
+        document.getElementById(value).textContent = 'Deleting...';
+        setTimeout(() => {
+            document.getElementById(value).style.display = 'none';
+        }, 1000);
     }
 }

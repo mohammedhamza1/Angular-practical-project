@@ -1,35 +1,62 @@
 <div class="container text-center">
     <button type="submit" routerLink="/management/{{adminUsername}}" class="btn btn-primary btn-lg">Back</button>
     <div class="row align-items-center">
-        <div class="col-lg-6 offset-lg-3">
+        <div [hidden]="submitted" class="col-lg-6 offset-lg-3">
             <h3>Add New User</h3>
-            <form #addForm="ngForm" (submit)="AddNewUser(); addForm.reset();">
+            <form #addForm="ngForm" (ngSubmit)="AddNewUser();">
                 <div class="form-group">
-                    <input type="text" #fname="ngModel" required name="newFName" [(ngModel)]="newFName" class="form-control"
+                    <input type="text" #fname="ngModel" required name="newFName" [(ngModel)]="newFName"
+                           class="form-control"
                            placeholder="First Name">
                     <div [hidden]="fname.valid || fname.pristine"
                          class="alert alert-danger">
-                      First Name is required
+                        First Name is required
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" #lname="ngModel" required name="newLName" [(ngModel)]="newLName" class="form-control"
+                    <input type="text" #lname="ngModel" required name="newLName" [(ngModel)]="newLName"
+                           class="form-control"
                            placeholder="Last Name">
                     <div [hidden]="lname.valid || lname.pristine"
                          class="alert alert-danger">
-                      Last Name is required
+                        Last Name is required
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" #uname="ngModel" required name="newUsername" [(ngModel)]="newUsername" class="form-control"
+                    <input type="text" #uname="ngModel" required name="newUsername" [(ngModel)]="newUsername"
+                           class="form-control"
                            placeholder="Username">
                     <div [hidden]="uname.valid || uname.pristine"
                          class="alert alert-danger">
                         Username is required
                     </div>
                 </div>
-                <button type="submit" [disabled]="fname.invalid || lname.invalid || uname.invalid"  class="btn btn-primary btn-lg btn-block">Add</button>
+                <button type="submit" [disabled]="fname.invalid || lname.invalid || uname.invalid"
+                        class="btn btn-primary btn-lg btn-block">Add
+                </button>
             </form>
+        </div>
+        <div [hidden]="!submitted" class="col-lg-6 offset-lg-3">
+            You Added New User
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    ID
+                    <span class="badge badge-success badge-pill">{{newID - 25}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    First Name
+                    <span class="badge badge-success badge-pill">{{fname.value}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Last Name
+                    <span class="badge badge-success badge-pill">{{lname.value}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Username
+                    <span class="badge badge-success badge-pill">{{uname.value}}</span>
+                </li>
+                <button (click)="submitted = false; addForm.reset();" class="btn btn-primary btn-lg">Add New</button>
+            </ul>
         </div>
     </div>
 </div>
